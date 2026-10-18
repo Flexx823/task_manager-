@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="header">
+            <div>
+                <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                <h1>TaskFlow<span>.</span></h1>
+                <p class="subtitle">Make today count. One task at a time.</p>
+            </div>
+            <div class="date" id="today"></div>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total tasks</p>
+                <h2 id="total">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Completed</p>
+                <h2 id="completed">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Remaining</p>
+                <h2 id="remaining">0</h2>
+            </div>
+        </section>
+
+        <section class="task-panel">
+            <h2>My tasks</h2>
+
+            <form id="task-form">
+                <input
+                    type="text"
+                    id="task-input"
+                    placeholder="What do you need to do?"
+                    maxlength="120"
+                    required
+                >
+                <select id="priority" aria-label="Task priority">
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <button type="submit">+ Add task</button>
+            </form>
+
+            <div class="toolbar">
+                <div class="filters">
+                    <button class="filter active" data-filter="all">All</button>
+                    <button class="filter" data-filter="active">Active</button>
+                    <button class="filter" data-filter="completed">Completed</button>
+                </div>
+                <button id="clear-completed" class="clear-btn">
+                    Clear completed
+                </button>
+            </div>
+
+            <ul id="task-list"></ul>
+
+            <p id="empty-message" class="empty">
+                No tasks here yet. Add your first task above!
+            </p>
+
+            <div class="progress-area">
+                <div class="progress-label">
+                    <span>Overall progress</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Built with HTML, CSS and JavaScript.
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

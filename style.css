@@ -1,0 +1,314 @@
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f4f6fb;
+    --surface: #ffffff;
+    --text: #182033;
+    --muted: #7b8498;
+    --primary: #635bff;
+    --border: #e7eaf2;
+}
+
+body {
+    margin: 0;
+    padding: 35px 16px;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 38px;
+    margin: 8px 0;
+}
+
+h1 span {
+    color: var(--primary);
+}
+
+.subtitle {
+    color: var(--muted);
+    margin: 0;
+}
+
+.date {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: right;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.stat-card,
+.task-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 0 0 10px;
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 29px;
+}
+
+.task-panel {
+    padding: 25px;
+}
+
+.task-panel > h2 {
+    margin-top: 0;
+}
+
+#task-form {
+    display: flex;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+input,
+select,
+button {
+    font: inherit;
+}
+
+input,
+select {
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: white;
+}
+
+input {
+    flex: 1;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 9px;
+    padding: 12px 15px;
+}
+
+#task-form button {
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.toolbar,
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.filter {
+    background: transparent;
+    color: var(--muted);
+    padding: 9px 11px;
+}
+
+.filter.active {
+    background: #eeedff;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.clear-btn {
+    background: transparent;
+    color: #d34c5b;
+    font-size: 12px;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.task-check {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.task-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title {
+    overflow-wrap: anywhere;
+}
+
+.task.done .task-title {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.priority {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+.priority.High {
+    background: #ffeded;
+    color: #c43e4b;
+}
+
+.priority.Medium {
+    background: #fff4d9;
+    color: #916500;
+}
+
+.priority.Low {
+    background: #e8f8ef;
+    color: #237b4b;
+}
+
+.delete-btn {
+    background: #fff0f0;
+    color: #c43e4b;
+    padding: 8px 10px;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 20px 0;
+}
+
+.progress-area {
+    margin-top: 28px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.progress-track {
+    height: 8px;
+    background: #e9eaf3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--primary);
+    transition: width 0.25s;
+}
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 25px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 25px 12px;
+    }
+
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .date {
+        text-align: left;
+    }
+
+    .stats {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 13px;
+    }
+
+    .stat-card h2 {
+        font-size: 23px;
+    }
+
+    .task-panel {
+        padding: 16px;
+    }
+
+    #task-form {
+        flex-wrap: wrap;
+    }
+
+    #task-form input {
+        flex-basis: 100%;
+    }
+
+    #task-form select,
+    #task-form button {
+        flex: 1;
+    }
+
+    .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
